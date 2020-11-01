@@ -1,4 +1,4 @@
-package java.parkinson.chris.model;
+package parkinson.chris.model;
 
 public class Munro {
 
@@ -8,7 +8,7 @@ public class Munro {
     private String geographUrl;
     private String hillBaggingUrl;
     private String name;
-    private Integer smcSection;
+    private String smcSection;
     private String rhbSection;
     private String section;
     private String heightMeters;
@@ -31,6 +31,38 @@ public class Munro {
     private MunroClassification classification1997;
     private MunroClassification classificationPost1997;
     private String comments;
+
+    public Munro(Integer runningNo, Integer doBIHNumber, String streetMapUrl, String geographUrl, String hillBaggingUrl, String name, String smcSection, String rhbSection, String section, String heightMeters, String heightFeet, String mapOneFifty, String mapOneTwentyFive, String gridRef, String gridRefXY, String xcoord, String ycoord, MunroClassification classification1891, MunroClassification classification1921, MunroClassification classification1933, MunroClassification classification1953, MunroClassification classification1969, MunroClassification classification1974, MunroClassification classification1981, MunroClassification classification1984, MunroClassification classification1990, MunroClassification classification1997, MunroClassification classificationPost1997, String comments) {
+        this.runningNo = runningNo;
+        this.doBIHNumber = doBIHNumber;
+        this.streetMapUrl = streetMapUrl;
+        this.geographUrl = geographUrl;
+        this.hillBaggingUrl = hillBaggingUrl;
+        this.name = name;
+        this.smcSection = smcSection;
+        this.rhbSection = rhbSection;
+        this.section = section;
+        this.heightMeters = heightMeters;
+        this.heightFeet = heightFeet;
+        this.mapOneFifty = mapOneFifty;
+        this.mapOneTwentyFive = mapOneTwentyFive;
+        this.gridRef = gridRef;
+        this.gridRefXY = gridRefXY;
+        this.xcoord = xcoord;
+        this.ycoord = ycoord;
+        this.classification1891 = classification1891;
+        this.classification1921 = classification1921;
+        this.classification1933 = classification1933;
+        this.classification1953 = classification1953;
+        this.classification1969 = classification1969;
+        this.classification1974 = classification1974;
+        this.classification1981 = classification1981;
+        this.classification1984 = classification1984;
+        this.classification1990 = classification1990;
+        this.classification1997 = classification1997;
+        this.classificationPost1997 = classificationPost1997;
+        this.comments = comments;
+    }
 
     public Integer getRunningNo() {
         return runningNo;
@@ -80,11 +112,11 @@ public class Munro {
         this.name = name;
     }
 
-    public Integer getSmcSection() {
+    public String getSmcSection() {
         return smcSection;
     }
 
-    public void setSmcSection(Integer smcSection) {
+    public void setSmcSection(String smcSection) {
         this.smcSection = smcSection;
     }
 
