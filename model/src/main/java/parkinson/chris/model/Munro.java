@@ -11,8 +11,8 @@ public class Munro {
     private String smcSection;
     private String rhbSection;
     private String section;
-    private String heightMeters;
-    private String heightFeet;
+    private Double heightMeters;
+    private Double heightFeet;
     private String mapOneFifty;
     private String mapOneTwentyFive;
     private String gridRef;
@@ -32,7 +32,7 @@ public class Munro {
     private MunroClassification classificationPost1997;
     private String comments;
 
-    public Munro(Integer runningNo, Integer doBIHNumber, String streetMapUrl, String geographUrl, String hillBaggingUrl, String name, String smcSection, String rhbSection, String section, String heightMeters, String heightFeet, String mapOneFifty, String mapOneTwentyFive, String gridRef, String gridRefXY, String xcoord, String ycoord, MunroClassification classification1891, MunroClassification classification1921, MunroClassification classification1933, MunroClassification classification1953, MunroClassification classification1969, MunroClassification classification1974, MunroClassification classification1981, MunroClassification classification1984, MunroClassification classification1990, MunroClassification classification1997, MunroClassification classificationPost1997, String comments) {
+    public Munro(Integer runningNo, Integer doBIHNumber, String streetMapUrl, String geographUrl, String hillBaggingUrl, String name, String smcSection, String rhbSection, String section, Double heightMeters, Double heightFeet, String mapOneFifty, String mapOneTwentyFive, String gridRef, String gridRefXY, String xcoord, String ycoord, MunroClassification classification1891, MunroClassification classification1921, MunroClassification classification1933, MunroClassification classification1953, MunroClassification classification1969, MunroClassification classification1974, MunroClassification classification1981, MunroClassification classification1984, MunroClassification classification1990, MunroClassification classification1997, MunroClassification classificationPost1997, String comments) {
         this.runningNo = runningNo;
         this.doBIHNumber = doBIHNumber;
         this.streetMapUrl = streetMapUrl;
@@ -136,19 +136,19 @@ public class Munro {
         this.section = section;
     }
 
-    public String getHeightMeters() {
+    public Double getHeightMeters() {
         return heightMeters;
     }
 
-    public void setHeightMeters(String heightMeters) {
+    public void setHeightMeters(Double heightMeters) {
         this.heightMeters = heightMeters;
     }
 
-    public String getHeightFeet() {
+    public Double getHeightFeet() {
         return heightFeet;
     }
 
-    public void setHeightFeet(String heightFeet) {
+    public void setHeightFeet(Double heightFeet) {
         this.heightFeet = heightFeet;
     }
 
