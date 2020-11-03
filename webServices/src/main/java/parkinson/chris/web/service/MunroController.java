@@ -1,5 +1,6 @@
 package parkinson.chris.web.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import parkinson.chris.model.MunroResult;
 import parkinson.chris.model.MunroSearchCriteria;
+import parkinson.chris.service.munro.MunroService;
 import parkinson.chris.web.exception.MunroValidationException;
 
 import java.util.List;
@@ -14,11 +16,15 @@ import java.util.List;
 @RestController
 public class MunroController {
 
+    private MunroService munroService;
+
     @PostMapping("/searchMunro")
     public List<MunroResult> searchMunro(@RequestBody MunroSearchCriteria searchCriteria){
-        validateSearchCriteria(searchCriteria);
-        
-        return null;
+        if(searchCriteria != null){
+            validateSearchCriteria(searchCriteria);
+        }
+        List<MunroResult> results = munroService.retrieveMunroData(searchCriteria);
+        return results;
     }
 
     private void validateSearchCriteria(MunroSearchCriteria searchCriteria) {
@@ -50,5 +56,10 @@ public class MunroController {
                 throw new MunroValidationException("Minimum Height must be less than Maximum Height");
             }
         }
+    }
+
+    @Autowired
+    public void setMunroService(MunroService munroService) {
+        this.munroService = munroService;
     }
 }

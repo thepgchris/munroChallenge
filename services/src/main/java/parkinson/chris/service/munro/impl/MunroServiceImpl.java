@@ -21,34 +21,33 @@ public class MunroServiceImpl implements MunroService {
     @Override
     public List<MunroResult> retrieveMunroData(MunroSearchCriteria searchCriteria) {
         List<Munro> munros = munroCSVReader.readMunrosFromCSV();
-        if(searchCriteria.getSortColumn() != null){
-            sortMunros(munros, searchCriteria);
+        if(searchCriteria != null) {
+            if (searchCriteria.getSortColumn() != null) {
+                sortMunros(munros, searchCriteria);
+            }
+
+            if (searchCriteria.getMinimumHeight() != null) {
+                munros = munros.stream()
+                        .filter(munro -> munro.getHeightMeters() > searchCriteria.getMinimumHeight()).collect(Collectors.toList());
+            }
+
+            if (searchCriteria.getMaximumHeight() != null) {
+                munros = munros.stream()
+                        .filter(munro -> munro.getHeightMeters() < searchCriteria.getMaximumHeight()).collect(Collectors.toList());
+            }
+
+            if (searchCriteria.getHillCategory() != null) {
+                munros = munros.stream()
+                        .filter(munro -> munro.getClassificationPost1997().equals(searchCriteria.getHillCategory()))
+                        .collect(Collectors.toList());
+            }
+
+            if (searchCriteria.getMaximumResults() != null) {
+                munros = munros.stream().limit(searchCriteria.getMaximumResults()).collect(Collectors.toList());
+            }
+
         }
-
-
-
-        List<Munro> filteredMunros = munros;
-        if(searchCriteria.getMinimumHeight() != null){
-            filteredMunros = filteredMunros.stream()
-                    .filter(munro -> munro.getHeightMeters() > searchCriteria.getMinimumHeight()).collect(Collectors.toList());
-        }
-
-        if(searchCriteria.getMaximumHeight() != null){
-            filteredMunros = filteredMunros.stream()
-                    .filter(munro -> munro.getHeightMeters() < searchCriteria.getMaximumHeight()).collect(Collectors.toList());
-        }
-
-        if (searchCriteria.getHillCategory() != null){
-            filteredMunros = filteredMunros.stream()
-                    .filter(munro -> munro.getClassificationPost1997().equals(searchCriteria.getHillCategory()))
-                    .collect(Collectors.toList());
-        }
-
-        if (searchCriteria.getMaximumResults() != null){
-            filteredMunros = filteredMunros.stream().limit(searchCriteria.getMaximumResults()).collect(Collectors.toList());
-        }
-
-        List<MunroResult> results = mapMunrosToResult(filteredMunros);
+        List<MunroResult> results = mapMunrosToResult(munros);
         return results;
     }
 
