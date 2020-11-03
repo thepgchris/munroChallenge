@@ -13,6 +13,7 @@
         <module>serviceImpl</module>
         <module>utilities</module>
         <module>model</module>
+        <module>webServices</module>
     </modules>
     <build>
         <plugins>
