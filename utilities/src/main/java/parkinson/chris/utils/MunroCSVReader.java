@@ -2,6 +2,7 @@ package parkinson.chris.utils;
 
 import com.opencsv.CSVReader;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 import parkinson.chris.model.Munro;
 import parkinson.chris.model.MunroClassification;
 
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MunroCSVReader {
     public List<Munro> readMunrosFromCSV(){
         List<Munro> munros = new ArrayList<Munro>();
