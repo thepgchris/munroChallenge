@@ -64,6 +64,10 @@ public class Munro {
         this.comments = comments;
     }
 
+    public Munro (){
+
+    }
+
     public Integer getRunningNo() {
         return runningNo;
     }

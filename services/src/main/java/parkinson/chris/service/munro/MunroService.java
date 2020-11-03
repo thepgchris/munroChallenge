@@ -1,4 +1,4 @@
-package java.parkinson.chris.service.munro;
+package parkinson.chris.service.munro;
 
 import parkinson.chris.model.MunroResult;
 import parkinson.chris.model.MunroSearchCriteria;
